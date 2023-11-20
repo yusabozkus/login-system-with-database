@@ -95,10 +95,10 @@ body{
 .center .bottom-form button:hover{
     transform: scale(1.1);
 }
-.center .bottom-form button.sign-in{
+.center .bottom-form button.active{
     background-color: var(--theme-color);
 }
-.center .bottom-form button.sign-up{
+.center .bottom-form button.deactive{
     border-color: var(--theme-color);
     background-color: transparent;
     color: #373737;

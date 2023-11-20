@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form | Fuez Code</title>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="center">
+        <div class="left">
+            <form action="#">
+                <div class="top-form">
+                    <div class="logo">
+                        <img src="favicon.png " alt="">
+                        <h1>Form Sign In</h1>
+                    </div>
+                </div>
+                <div class="center-form">
+                    <div class="input-con">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Username" required>
+                    </div>
+                    <div class="input-con">
+                        <i class="fa-solid fa-lock-keyhole"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                </div>
+                <div class="bottom-form">
+                    <button class="active">Sign In</button>
+                    <button onclick="goSignUpPage()" class="deactive">Sign Up</button>
+                </div>
+            </form>
+        </div>
+        <div class="right">
+            <img src="banner.png" alt="">
+        </div>
+    </div>
+    <script>
+        function goSignUpPage() {
+            window.location.href = "sign-up.html"
+        }
+    </script>
+</body>
+</html>
