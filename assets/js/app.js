@@ -13,6 +13,19 @@ firebase.initializeApp(firebaseConfig)
 var database = firebase.database();
 var auth = firebase.auth();
 
+/* SIGN UP */
+function signUpLoad() {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            // User is signed in
+            window.location.href = "home.html"
+            // ...
+        } else {
+            // User is signed out
+            // ...
+        }
+    });
+}
 function saveUserToDB() {
     let username = document.getElementById("username").value
     let fullname = document.getElementById("fullname").value
@@ -22,12 +35,12 @@ function saveUserToDB() {
     auth.createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Signed in 
-            
+
             database.ref("users").push({
-                username : username,
-                fullname : fullname,
-                email : email,
-                password : password
+                username: username,
+                fullname: fullname,
+                email: email,
+                password: password
             })
             alert("user account created!")
         })
@@ -36,4 +49,57 @@ function saveUserToDB() {
             var errorMessage = error.message;
             alert(errorMessage)
         });
+}
+
+/* SIGN IN */
+function signInLoad() {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            // User is signed in
+            window.location.href = "home.html"
+            // ...
+        } else {
+            // User is signed out
+            // ...
+        }
+    });
+}
+function signInToSite() {
+    let email = document.getElementById("email").value
+    let password = document.getElementById("password").value
+
+    auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
+            window.location.href = "home.html"
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert(errorMessage)
+        });
+}
+
+/* HOME */
+function homeLoad() {
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            // User is signed in
+            
+            // ...s
+        } else {
+            // User is signed out
+            // ...
+            window.location.href = "sign-in.html"
+        }
+    });
+}
+function signOutUserAccount() {
+    auth.signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "sign-in.html"
+    }).catch((error) => {
+        // An error happened.
+    });
 }
